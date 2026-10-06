@@ -42,7 +42,10 @@ header{position:fixed;top:0;left:0;right:0;z-index:30;box-shadow:0 4px 18px rgba
 
 /* Inicio */
 .hero{min-height:88vh;display:flex;align-items:center;text-align:center;color:#fff;padding:190px 0 90px;background:linear-gradient(rgba(27,18,51,.55),rgba(91,43,184,.62)),var(--img,none) center/cover,linear-gradient(135deg,#7b2fd0,#e3262d 60%,#ff8a1f)}
-.hero h1{font-size:clamp(2.8rem,9vw,6.2rem);text-shadow:0 4px 0 rgba(0,0,0,.25)}
+.hero h1{font-size:clamp(2.8rem,9vw,6.2rem);text-shadow:0 4px 0 var(--red),0 8px 0 rgba(0,0,0,.3)}
+.hero h1 em{display:block;font-style:normal;color:#fff8d6;text-shadow:0 0 6px #fff,0 0 18px var(--gold),0 0 38px var(--fire),0 0 80px var(--red);animation:neon 3.5s infinite}
+@keyframes neon{0%,18%,22%,62%,66%,100%{opacity:1}20%,64%{opacity:.78}}
+@media(prefers-reduced-motion:reduce){.hero h1 em{animation:none}}
 .hero p{font-size:1.35rem;max-width:40ch;margin:18px auto 30px}
 .ct{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;margin-top:44px;font-weight:700}
 .ct b{display:block;font:1.3rem 'Titan One'}
@@ -172,7 +175,7 @@ footer a{display:block;text-decoration:none;margin-bottom:4px}
   <!-- Inicio: pon tu foto en fotos/hero.jpg -->
   <section class="hero" id="inicio" style="--img:url('fotos/hero.jpg')">
     <div class="wrap">
-      <h1>¡Juega, salta y acelera!</h1>
+      <h1>¡Juega, salta y <em>acelera!</em></h1>
       <p>Arcade, gokarts y trampolines en el Centro Comercial La Estación, Ibagué.</p>
       <a class="pill" href="#reservar">Reservar mi visita</a>
       <div class="ct">
