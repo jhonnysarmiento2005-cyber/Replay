@@ -30,15 +30,18 @@ header{position:fixed;top:0;left:0;right:0;z-index:30;box-shadow:0 4px 18px rgba
 .top a{background:#fff;color:var(--red);font-weight:700;font-size:.9rem;text-decoration:none;padding:3px 14px;border-radius:999px}
 .bar{background:#fff;height:66px}
 .bar .wrap{height:100%}
-.menu{display:flex;justify-content:center;align-items:center;gap:6px;height:100%}
+.menu{display:grid;grid-template-columns:1fr 310px 1fr;align-items:center;height:100%}
+.mg{display:flex;gap:6px}
+.mg.a{justify-content:flex-end}
+.mg.b{justify-content:flex-start}
 .menu a.l{text-decoration:none;font-weight:700;padding:8px 16px;border-radius:999px;white-space:nowrap}
 .menu a.l:hover{color:var(--fire)}
 .menu a.l.on{background:var(--gold)}
-.sp{width:230px;flex:none}
+.sp{display:block}
 .strip{background:var(--fire);height:36px}
-.badge{position:absolute;left:50%;top:16px;transform:translateX(-50%);background:#fff;border:5px solid var(--gold);border-radius:28px;padding:8px 18px;box-shadow:0 6px 16px rgba(0,0,0,.25);z-index:2}
-.badge img{height:66px;display:block}
-.mlogo{display:none;height:34px;flex:none}
+.badge{position:absolute;left:50%;top:12px;transform:translateX(-50%);background:#fff;border:5px solid var(--gold);border-radius:28px;padding:22px 22px;box-shadow:0 6px 16px rgba(0,0,0,.25);z-index:2}
+.badge img{width:220px;height:auto;display:block}
+.mlogo{display:none;height:30px;flex:none}
 
 /* Inicio */
 .hero{min-height:88vh;display:flex;align-items:center;text-align:center;color:#fff;padding:190px 0 90px;background:linear-gradient(rgba(27,18,51,.55),rgba(91,43,184,.62)),var(--img,none) center/cover,linear-gradient(135deg,#7b2fd0,#e3262d 60%,#ff8a1f)}
@@ -136,6 +139,7 @@ footer a{display:block;text-decoration:none;margin-bottom:4px}
   .pg{grid-template-columns:repeat(2,1fr)}
   .it{flex-basis:calc((100% - 22px)/2)}
 }
+@media(max-width:960px){.badge,.sp,.strip{display:none}.mlogo{display:block;margin-right:6px}.menu{display:flex;justify-content:flex-start;overflow-x:auto;scrollbar-width:none}.menu::-webkit-scrollbar{display:none}.mg{flex:none}.hero{padding-top:150px}}
 @media(max-width:760px){
   section{padding:68px 0}
   .badge,.sp,.strip{display:none}
@@ -166,18 +170,22 @@ footer a{display:block;text-decoration:none;margin-bottom:4px}
   </div></div>
   <div class="bar"><div class="wrap">
     <nav class="menu" aria-label="Secciones">
-      <img class="mlogo" src="logo.jpg" alt="Replay">
+      <img class="mlogo" src="logo.png" alt="Replay">
+      <div class="mg a">
       <a class="l" href="#inicio">Inicio</a>
       <a class="l" href="#atracciones">Atracciones</a>
       <a class="l" href="precios.html" target="_blank" rel="noopener">Precios</a>
+      </div>
       <span class="sp"></span>
+      <div class="mg b">
       <a class="l" href="#reservar">Reservar</a>
       <a class="l" href="#fiestas">Cumpleaños</a>
       <a class="l" href="#visitanos">Visítanos</a>
+      </div>
     </nav>
   </div></div>
   <div class="strip"></div>
-  <a class="badge" href="#inicio" aria-label="Replay, inicio"><img src="logo.jpg" alt="Replay"></a>
+  <a class="badge" href="#inicio" aria-label="Replay, inicio"><img src="logo.png" alt="Replay"></a>
 </header>
 
 <main>
