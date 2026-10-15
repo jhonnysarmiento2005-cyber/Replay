@@ -44,6 +44,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:30;box-shadow:0 4px 18px rgba
 @media(max-width:1150px){.menu{grid-template-columns:1fr 340px 1fr}.menu a.l{padding:8px 10px}.badge img{height:52px!important}}
 .badge img{height:64px;width:auto;display:block;filter:drop-shadow(0 2px 3px rgba(0,0,0,.25))}
 .mlogo{display:none;height:30px;flex:none}
+.mhome,.burger,.msoc{display:none}
 
 /* Inicio */
 .hero{min-height:88vh;display:flex;align-items:center;text-align:center;color:#fff;padding:190px 0 90px;background:linear-gradient(rgba(27,18,51,.55),rgba(91,43,184,.62)),var(--img,none) center/cover,linear-gradient(135deg,#7b2fd0,#e3262d 60%,#ff8a1f)}
@@ -141,7 +142,7 @@ footer a{display:block;text-decoration:none;margin-bottom:4px}
   .pg{grid-template-columns:repeat(2,1fr)}
   .it{flex-basis:calc((100% - 22px)/2)}
 }
-@media(max-width:960px){.badge,.sp,.strip{display:none}.bar{height:64px}.mlogo{display:block;margin-right:6px}.menu{display:flex;justify-content:flex-start;overflow-x:auto;scrollbar-width:none}.menu::-webkit-scrollbar{display:none}.mg{flex:none}.hero{padding-top:150px}}
+@media(max-width:960px){.badge,.sp,.strip,.top{display:none}.bar{height:64px}html{scroll-padding-top:80px}.hero{padding-top:120px}.bar .wrap{display:flex;align-items:center;justify-content:space-between}.mhome{display:block}.mlogo{display:block;height:44px;width:auto;margin:0}.burger{display:flex;flex-direction:column;justify-content:center;gap:5px;width:46px;height:46px;border:0;border-radius:12px;background:var(--gold);cursor:pointer;padding:0 12px}.burger span{display:block;height:3px;border-radius:2px;background:var(--navy)}.menu{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:8px 16px 20px;box-shadow:0 14px 24px rgba(0,0,0,.25);border-top:3px solid var(--gold);max-height:calc(100vh - 64px);overflow-y:auto}.menu.open{display:flex}.mg{display:contents}.menu a.l{padding:15px 16px;font-size:1.15rem;border-radius:12px}.msoc{display:flex;gap:10px;margin-top:12px;padding:0 16px}.msoc a{background:var(--red);color:#fff;text-decoration:none;font-weight:700;padding:8px 18px;border-radius:999px}}
 @media(max-width:760px){
   section{padding:68px 0}
   .badge,.sp,.strip{display:none}
@@ -171,8 +172,9 @@ footer a{display:block;text-decoration:none;margin-bottom:4px}
     <a href="#" target="_blank" rel="noopener">TikTok</a>
   </div></div>
   <div class="bar"><div class="wrap">
-    <nav class="menu" aria-label="Secciones">
-      <img class="mlogo" src="logo.png" alt="Replay">
+    <a class="mhome" href="#inicio" aria-label="Replay, inicio"><img class="mlogo" src="logo.png" alt="Replay"></a>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <nav class="menu" id="menu" aria-label="Secciones">
       <div class="mg a">
       <a class="l" href="#inicio">Inicio</a>
       <a class="l" href="#atracciones">Atracciones</a>
@@ -184,6 +186,7 @@ footer a{display:block;text-decoration:none;margin-bottom:4px}
       <a class="l" href="#fiestas">Cumpleaños</a>
       <a class="l" href="#visitanos">Visítanos</a>
       </div>
+      <div class="msoc"><a href="#" target="_blank" rel="noopener">Instagram</a><a href="#" target="_blank" rel="noopener">TikTok</a></div>
     </nav>
   </div></div>
   <div class="strip"></div>
@@ -366,6 +369,13 @@ document.querySelectorAll('main section[id]').forEach(s=>io.observe(s));
 const up=document.getElementById('up');
 addEventListener('scroll',()=>up.style.display=scrollY>600?'block':'none');
 up.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+
+// Menú móvil
+const bg=document.getElementById('burger'),mn=document.getElementById('menu');
+if(bg){const cerrar=()=>{mn.classList.remove('open');bg.setAttribute('aria-expanded','false')};
+bg.onclick=()=>{const o=mn.classList.toggle('open');bg.setAttribute('aria-expanded',o)};
+mn.addEventListener('click',e=>{if(e.target.closest('a'))cerrar()});
+addEventListener('keydown',e=>{if(e.key==='Escape')cerrar()})}
 </script>
 </body>
 </html>
