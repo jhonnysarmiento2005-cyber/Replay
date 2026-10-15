@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Precios y promociones | Replay Ibagué</title>
+<meta name="description" content="Recargas con bonus, precios de gokarts y trampolín en Replay, Centro Comercial La Estación, Ibagué.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Titan+One&display=swap" rel="stylesheet">
+<style>
+:root{--violet:#5b2bb8;--party:#8a4dff;--fire:#ff5a1f;--red:#e3262d;--gold:#ffc21a;--navy:#1b1233;--soft:#fff6e8}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:120px}
+body{font-family:'Quicksand',sans-serif;font-weight:500;font-size:1.15rem;line-height:1.6;color:var(--navy);background:#fff}
+h1,h2,h3{font-family:'Titan One',sans-serif;font-weight:400;line-height:1.1}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--navy);outline-offset:3px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+section{padding:96px 0}
+h2{font-size:clamp(1.9rem,4.6vw,3rem);text-align:center;color:var(--violet);margin-bottom:48px}
+.pill{display:inline-block;border:0;cursor:pointer;font:700 1.1rem 'Quicksand',sans-serif;background:var(--red);color:#fff;text-decoration:none;padding:15px 34px;border-radius:999px}
+.pill:hover{filter:brightness(1.1)}
+.pill.alt{background:var(--gold);color:var(--navy)}
+
+/* Encabezado flotante */
+header{position:fixed;top:0;left:0;right:0;z-index:30;box-shadow:0 4px 18px rgba(0,0,0,.18)}
+.top{background:var(--fire);height:38px}
+.top .wrap{display:flex;justify-content:flex-end;align-items:center;gap:10px;height:100%}
+.top a{background:#fff;color:var(--red);font-weight:700;font-size:.9rem;text-decoration:none;padding:3px 14px;border-radius:999px}
+.bar{background:#fff;height:66px}
+.bar .wrap{height:100%}
+.menu{display:flex;justify-content:center;align-items:center;gap:6px;height:100%}
+.menu a.l{text-decoration:none;font-weight:700;padding:8px 16px;border-radius:999px;white-space:nowrap}
+.menu a.l:hover{color:var(--fire)}
+.menu a.l.on{background:var(--gold)}
+.sp{width:230px;flex:none}
+.strip{background:var(--fire);height:36px}
+.badge{position:absolute;left:50%;top:16px;transform:translateX(-50%);background:#fff;border:5px solid var(--gold);border-radius:28px;padding:8px 18px;box-shadow:0 6px 16px rgba(0,0,0,.25);z-index:2}
+.badge img{height:66px;display:block}
+.mlogo{display:none;height:34px;flex:none}
+
+/* Inicio */
+.hero{min-height:88vh;display:flex;align-items:center;text-align:center;color:#fff;padding:190px 0 90px;background:linear-gradient(rgba(27,18,51,.55),rgba(91,43,184,.62)),var(--img,none) center/cover,linear-gradient(135deg,#7b2fd0,#e3262d 60%,#ff8a1f)}
+.hero h1{font-size:clamp(2.8rem,9vw,6.2rem);text-shadow:0 4px 0 var(--red),0 8px 0 rgba(0,0,0,.3)}
+.hero h1 em{display:block;font-style:normal;color:#fff8d6;text-shadow:0 0 6px #fff,0 0 18px var(--gold),0 0 38px var(--fire),0 0 80px var(--red);animation:neon 3.5s infinite}
+@keyframes neon{0%,18%,22%,62%,66%,100%{opacity:1}20%,64%{opacity:.78}}
+@media(prefers-reduced-motion:reduce){.hero h1 em{animation:none}}
+.hero p{font-size:1.35rem;max-width:40ch;margin:18px auto 30px}
+.ct{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;margin-top:44px;font-weight:700}
+.ct b{display:block;font:1.3rem 'Titan One'}
+.ct a{text-decoration:none}
+
+/* Tarjetas de fotos */
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.ph{background:var(--img,none) center/cover,var(--bg);aspect-ratio:3/2;display:block}
+.tc{text-decoration:none;display:block;border-radius:6px;overflow:hidden;box-shadow:0 8px 22px rgba(27,18,51,.18)}
+.tc span{display:block;text-align:center;color:#fff;font:1.4rem 'Titan One';padding:14px}
+
+/* Carrusel de atracciones */
+.att{background:var(--fire) radial-gradient(rgba(255,255,255,.16) 3px,transparent 4px) 0 0/34px 34px}
+.att h2{color:#fff}
+.car{position:relative;padding:0 64px}
+.trk{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.trk::-webkit-scrollbar{display:none}
+.it{flex:0 0 calc((100% - 44px)/3);scroll-snap-align:start;text-align:center;color:#fff;font:1.35rem 'Titan One'}
+.it .ph{border-radius:6px;margin-bottom:14px}
+.ar{position:absolute;top:38%;width:46px;height:46px;border-radius:50%;border:0;background:#fff;color:var(--fire);font-size:1.6rem;font-weight:700;cursor:pointer}
+.ar.p{left:4px}.ar.n{right:4px}
+.dots{display:flex;justify-content:center;gap:10px;margin-top:30px}
+.dots button{width:13px;height:13px;border-radius:50%;border:0;background:rgba(255,255,255,.45);cursor:pointer;padding:0}
+.dots button.on{background:#fff}
+
+/* Fiestas */
+.fie{background:var(--party) radial-gradient(rgba(255,255,255,.1) 3px,transparent 4px) 0 0/40px 40px;color:#fff}
+.fie .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
+.cake{font-size:clamp(7rem,18vw,12rem);text-align:center;line-height:1;filter:drop-shadow(0 10px 0 rgba(0,0,0,.18))}
+.fie h2{color:#fff;text-align:left;margin-bottom:16px}
+.fie p.t{margin-bottom:26px;max-width:46ch}
+.fm{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:flex;flex-direction:column;gap:5px;font-weight:700;font-size:1rem}
+.full,.fm .pill,.fm .nt{grid-column:1/-1}
+input,select,textarea{font:inherit;color:var(--navy);background:#fff;border:3px solid transparent;border-radius:14px;padding:12px 14px;width:100%}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);outline:0}
+.nt{font-size:.95rem;opacity:.9}
+
+/* Planes y precios */
+.pl{background:var(--soft)}
+.pg{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;align-items:start}
+.pr{background:#fff;border-radius:22px;padding:26px 20px;text-align:center;box-shadow:0 8px 22px rgba(27,18,51,.12)}
+.pr h3{font-size:1.25rem;color:var(--violet);min-height:2.6em;display:grid;place-items:center}
+.pr .v{font:2.1rem 'Titan One';color:var(--red);margin:6px 0 18px}
+.pr .v small{display:block;font:700 .95rem 'Quicksand';color:var(--navy)}
+details{border:2px dashed var(--violet);border-radius:14px;background:var(--violet);color:#fff;text-align:left}
+summary{cursor:pointer;font:1.05rem 'Titan One';padding:12px 14px;list-style:none;text-align:center}
+summary::-webkit-details-marker{display:none}
+details p{background:#fff;color:var(--navy);margin:0;padding:12px 14px;font-size:1rem;border-radius:0 0 12px 12px}
+
+/* Reservar */
+.rv .fm{max-width:720px;margin:0 auto;background:var(--soft);padding:34px;border-radius:26px}
+.rv label{color:var(--navy)}
+.rv input,.rv select{border-color:#e6d3b5}
+.rv .nt{color:#6b5a48}
+
+/* Galería */
+.gl{background:var(--soft)}
+.mos{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:210px;gap:14px}
+.mos .ph{aspect-ratio:auto;height:100%;border-radius:6px}
+.mos .t2{grid-row:span 2}
+
+/* Visítanos y pie */
+.vs{background:#fff}
+.vg{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.vc{border:3px solid var(--violet);border-radius:22px;padding:28px}
+.vc h3{color:var(--violet);margin-bottom:10px;font-size:1.5rem}
+footer{background:var(--fire);color:#fff;padding:64px 0 28px}
+.fg{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-bottom:40px}
+footer h3{font-size:1.3rem;margin-bottom:14px}
+footer a{display:block;text-decoration:none;margin-bottom:4px}
+.legal{background:rgba(0,0,0,.18);border-radius:14px;padding:14px;text-align:center;font-weight:700;margin-bottom:22px}
+.cp{text-align:center;font-size:.95rem}
+.wa{position:fixed;right:16px;bottom:16px;z-index:40;display:flex;align-items:center;gap:10px;text-decoration:none}
+.wa i{background:#fff;color:var(--navy);font-style:normal;font-size:.85rem;font-weight:700;padding:10px 14px;border-radius:12px;box-shadow:0 4px 14px rgba(0,0,0,.25);max-width:150px;line-height:1.3}
+.wa b{width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;color:#fff;font-size:1.7rem;box-shadow:0 6px 16px rgba(0,0,0,.35)}
+.up{position:fixed;right:22px;bottom:92px;z-index:40;width:44px;height:44px;border-radius:10px;border:0;background:var(--violet);color:#fff;font-size:1.3rem;cursor:pointer;display:none}
+
+.ico{width:1.4em;height:1.4em;fill:currentColor;flex:none}
+.wbtn{display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#04210f;font-weight:700;text-decoration:none;padding:10px 22px;border-radius:999px;box-shadow:0 6px 16px rgba(0,0,0,.25);transition:transform .2s,box-shadow .2s}
+.wbtn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 10px 22px rgba(0,0,0,.35)}
+.fw{display:inline-flex!important;align-items:center;gap:8px}
+.wa b .ico{width:34px;height:34px}
+.wa b{animation:pulso 2.4s infinite}
+@keyframes pulso{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+@media(prefers-reduced-motion:reduce){.wa b{animation:none}.wbtn{transition:none}}
+@media(max-width:960px){
+  .pg{grid-template-columns:repeat(2,1fr)}
+  .it{flex-basis:calc((100% - 22px)/2)}
+}
+@media(max-width:760px){
+  section{padding:68px 0}
+  .badge,.sp,.strip{display:none}
+  .mlogo{display:block;margin-right:6px}
+  .menu{justify-content:flex-start;overflow-x:auto;scrollbar-width:none}
+  .menu::-webkit-scrollbar{display:none}
+  .hero{padding:140px 0 70px}
+  .tri,.vg,.fg,.fie .wrap{grid-template-columns:1fr}
+  .fie h2{text-align:center}.fie .wrap>div:last-child{text-align:center}
+  .fm{grid-template-columns:1fr}
+  .pg{grid-template-columns:1fr}
+  .car{padding:0 8px}.ar{display:none}
+  .it{flex-basis:84%}
+  .mos{grid-template-columns:1fr 1fr;grid-auto-rows:160px}
+  .wa i{display:none}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.hero.sm{min-height:0;padding:190px 0 70px}
+.dk{background:linear-gradient(160deg,#2b1670,#1b1233);color:#fff}
+.dk h2{color:#fff;margin-bottom:14px}
+.dk h2 em{font-style:normal;color:var(--gold)}
+.dk .sub{text-align:center;max-width:46ch;margin:0 auto 44px}
+.rg{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.rc{background:rgba(255,255,255,.07);border:4px solid var(--c);padding:26px 22px}
+.rc small{display:block;font-weight:700;letter-spacing:.15em;font-size:.9rem;opacity:.85}
+.rc .am{font:2.3rem 'Titan One';margin:4px 0 14px}
+.rc .bn{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;padding:6px 12px;box-shadow:4px 4px 0 var(--fire)}
+.rc p{margin-top:14px}
+.rc p b{color:var(--gold);font-size:1.25rem}
+.pg.g3{grid-template-columns:repeat(3,1fr)}
+.nt2{text-align:center;margin-top:30px;color:#6b5a48}
+.cta{text-align:center;padding:72px 0}
+.cta h2{margin-bottom:16px}
+.cta .row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+@media(max-width:960px){.rg,.pg.g3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.rg,.pg.g3{grid-template-columns:1fr}.hero.sm{padding:130px 0 56px}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol></svg>
+<header>
+  <div class="top"><div class="wrap">
+    <a href="#" target="_blank" rel="noopener">Instagram</a>
+    <a href="#" target="_blank" rel="noopener">TikTok</a>
+  </div></div>
+  <div class="bar"><div class="wrap">
+    <nav class="menu" aria-label="Secciones">
+      <img class="mlogo" src="logo.jpg" alt="Replay">
+      <a class="l" href="index.html#inicio">Inicio</a>
+      <a class="l" href="index.html#atracciones">Atracciones</a>
+      <a class="l on" href="precios.html">Precios</a>
+      <span class="sp"></span>
+      <a class="l" href="index.html#reservar">Reservar</a>
+      <a class="l" href="index.html#fiestas">Cumpleaños</a>
+      <a class="l" href="index.html#visitanos">Visítanos</a>
+    </nav>
+  </div></div>
+  <div class="strip"></div>
+  <a class="badge" href="index.html" aria-label="Replay, inicio"><img src="logo.jpg" alt="Replay"></a>
+</header>
+
+<main>
+  <section class="hero sm">
+    <div class="wrap">
+      <h1>Precios y <em>promociones</em></h1>
+      <p>Recargas con bonus, gokarts y trampolín en un solo lugar.</p>
+      <a class="wbtn" href="https://wa.me/573203475059?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20parque" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#wa"/></svg>Pregúntanos por WhatsApp</a>
+    </div>
+  </section>
+
+  <section class="dk" id="recargas">
+    <div class="wrap">
+      <h2>Recarga y gana <em>bonus</em></h2>
+      <p class="sub">Mientras más recargas, más juegas. Tarjeta arcade: $2.000.</p>
+      <div class="rg">
+<div class="rc" style="--c:#ffc21a"><small>RECARGA</small><div class="am">$30.000</div><span class="bn">+ $10.000 BONUS</span><p>Juegas con <b>$40.000</b></p></div>
+<div class="rc" style="--c:#ff5a1f"><small>RECARGA</small><div class="am">$40.000</div><span class="bn">+ $13.000 BONUS</span><p>Juegas con <b>$53.000</b></p></div>
+<div class="rc" style="--c:#ffffff"><small>RECARGA</small><div class="am">$50.000</div><span class="bn">+ $20.000 BONUS</span><p>Juegas con <b>$70.000</b></p></div>
+<div class="rc" style="--c:#8a4dff"><small>RECARGA</small><div class="am">$100.000</div><span class="bn">+ $45.000 BONUS</span><p>Juegas con <b>$145.000</b></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pl" id="karts">
+    <div class="wrap">
+      <h2>Karts y trampolín</h2>
+      <div class="pg g3">
+        <div class="pr"><h3>Trampolín, media hora</h3><div class="v">$23.000<small>por persona</small></div>
+          <details><summary>¿Qué incluye?</summary><p>30 minutos de trampolín y te obsequiamos las medias. Se paga aparte de la tarjeta.</p></details></div>
+        <div class="pr"><h3>Trampolín, una hora</h3><div class="v">$30.000<small>por persona</small></div>
+          <details><summary>¿Qué incluye?</summary><p>Una hora de trampolín y te obsequiamos las medias. Se paga aparte de la tarjeta.</p></details></div>
+        <div class="pr"><h3>Gokarts</h3><div class="v">$20.000<small>por persona</small></div>
+          <details><summary>¿Qué incluye?</summary><p>6 min de karts y una increíble experiencia. Se paga aparte de la tarjeta.</p></details></div>
+      </div>
+      <p class="nt2">Los gokarts y los trampolines se pagan aparte de la tarjeta de juegos.</p>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h2>¡Ven a visitarnos!</h2>
+      <p>Centro Comercial La Estación, local 301, Ibagué<br>Lun a vie 1 pm – 9 pm · Fines de semana y festivos 11 am – 10 pm</p>
+      <div class="row">
+        <a class="pill" href="index.html#reservar">Reservar mi visita</a>
+        <a class="wbtn" href="https://wa.me/573203475059?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20parque" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#wa"/></svg>Escribir por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer style="padding:32px 0"><div class="wrap"><p class="cp">Copyright 2026 © Replay | Sitio por G&amp;B Web</p></div></footer>
+
+<a class="wa" href="https://wa.me/573203475059?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20parque" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><i>¿Necesitas ayuda? Habla con nosotros</i><b><svg class="ico" aria-hidden="true"><use href="#wa"/></svg></b></a>
+</body>
+</html>
